@@ -2,43 +2,31 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model IQueryable<Book>
+@model BookListViewModel
 <!-- Using bootstrap output the book list -->
-<header class="shadow">
-    <h1 class="text-center">Welcome to Our Book Store</h1>
-</header>
+<!--  Here are the 3 extra bootstrap items I tried out. First 3 are on the _Layout page
+    1. jumobtron
+    2. alert alert-warning
+    3.bg-secondary and bg-light
+    4. On the Index.cshtml Page - badge-info instead of bage-primary
 
-<h2 class="text-center">Available Books</h2>
-<br />
-<br />
-<div class="text-center">
-    <table class="table-dark" width="80%" style="margin-left: auto; margin-right:auto">
-        <thead>
-            <tr class="d-lg-table-row">
-                <th>Title</th>
-                <th>Author</th>
-                <th>Publisher</th>
-                <th>ISBN</th>
-                <th>Classification</th>
-                <th>Category</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var x in Model)
-            {
-                <tr class="d-md-table-row">
-                    <td>@x.Title</td>
-                    <td>@x.AuthorFirst @if (x.AuthorMiddle != "")
-                    {@x.AuthorMiddle } @x.AuthorLast </td>
-                    <td>@x.Publisher</td>
-                    <td>@x.ISBN</td>
-                    <td>@x.Classification</td>
-                    <td>@x.Category</td>
-                    <td>@x.Price.ToString("c")</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+    -->
+@foreach (var x in Model.Books)
+{
+    <div class="card card-outline-primary m-1 p-1">
+        <h4>
+            @x.Title
+            <span class="badge badge-pill badge-info" style="float:right">$@x.Price</span>
+        </h4>
+        <p>Author: @x.AuthorFirst @x.AuthorMiddle @x.AuthorLast</p>
+        <p>Publisher: @x.Publisher</p>
+        <p>Classification/Category: @x.Classification, @x.Category</p>
+        <p>Pages: @x.Pages</p>
+
+    </div>
+}
+<!-- This is where the pagination happens. Current page is highlighted and you can select other pages-->
+<div page-model="@Model.Pageinfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+
 

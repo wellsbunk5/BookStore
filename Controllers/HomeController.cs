@@ -1,4 +1,5 @@
 ﻿using BookStore.Models;
+using BookStore.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -14,6 +15,8 @@ namespace BookStore.Controllers
         private readonly ILogger<HomeController> _logger;
         // set up repository variable
         private BookStoreRepository _repository;
+        // set up number of books we want listed on each page
+        public int numItemsOnPage = 5;
 
         public HomeController(ILogger<HomeController> logger, BookStoreRepository repository)
         {
@@ -22,10 +25,24 @@ namespace BookStore.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            // call view and pass it the IQueryable
-            return View(_repository.Books);
+            // call view and pass it the BookListViewModel which contains both the repository of Books and the Page Info
+            return View(new BookListViewModel
+            {
+                // Set the Books = to _repository and make sure it only grabs the right ones for each page
+                Books = _repository.Books.OrderBy(p => p.BookId)
+                .Skip((page -1) * numItemsOnPage)
+                .Take(numItemsOnPage),
+                Pageinfo = new PageInfo
+                {
+                    // Grab info for the Paging info
+                    CurrentPage = page,
+                    ItemsPerPage = numItemsOnPage,
+                    TotalNumItems = _repository.Books.Count()
+                }
+            });
+                
         }
 
         public IActionResult Privacy()

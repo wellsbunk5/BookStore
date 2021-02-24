@@ -32,5 +32,9 @@ namespace BookStore.Models
         [Required]
         public decimal Price { get; set; }
 
+        // This is the new database element that was added
+        [Required]
+        public int Pages { get; set; }
+
     }
 }

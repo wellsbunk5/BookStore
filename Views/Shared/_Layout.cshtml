@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+<!-- Import Bootstrap into all of the html pages-->
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +8,26 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body >
-    @RenderBody()
+<!-- This is just the layout for all pages. Here are the 3 extra bootstrap items I tried out
+    1. jumobtron
+    2. alert alert-warning
+    3.bg-secondary and bg-light
+    4. On the Index.cshtml Page - badge-info instead of bage-primary 
+    
+    -->
+<body class="bg-secondary" >
+    <div class="jumbotron bg-light">
+        <h2 class="text-center">Welcome to Our Book Store</h2>
+    </div>
+    <div class="row m-1 p-1">
+        <div class="col-3">
+            <h2>Available Books</h2>
+            <p class="alert alert-warning"><strong>Order Fast!</strong> Not Much Stock Left.</p>
+        </div>
+        <div class="col-9">
+            @RenderBody()
+        </div>
+    </div>
+    
 </body>
 </html>

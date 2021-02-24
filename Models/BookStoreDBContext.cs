@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Models
 {
-    // Honestly I don't know about what exactly this is doing
+    // Not much is in here but this is kinda just taking a snapshot of the database to use
     public class BookStoreDBContext : DbContext
     {
         public BookStoreDBContext(DbContextOptions<BookStoreDBContext> options) : base (options)

@@ -35,7 +35,8 @@ namespace BookStore.Models
                         ISBN = "978-0451419439",
                         Classification = "Fiction",
                         Category = "Classic",
-                        Price = 9.95m
+                        Price = 9.95m,
+                        Pages = 1488
                     },
 
                     new Book
@@ -48,7 +49,8 @@ namespace BookStore.Models
                         ISBN = "978-0743270755",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 14.58m
+                        Price = 14.58m,
+                        Pages = 944
                     },
 
                     new Book
@@ -61,7 +63,8 @@ namespace BookStore.Models
                         ISBN = "978-0553384611",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 21.54m
+                        Price = 21.54m,
+                        Pages = 832
 
                     },
 
@@ -75,7 +78,8 @@ namespace BookStore.Models
                         ISBN = "978-0812981254 ",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 11.61m
+                        Price = 11.61m,
+                        Pages = 864
 
                     },
 
@@ -89,7 +93,8 @@ namespace BookStore.Models
                         ISBN = "978-0812974492 ",
                         Classification = "Non-Fiction",
                         Category = "Historical",
-                        Price = 13.33m
+                        Price = 13.33m,
+                        Pages = 528
                     },
 
                     new Book
@@ -102,7 +107,8 @@ namespace BookStore.Models
                         ISBN = "978-0804171281 ",
                         Classification = "Fiction",
                         Category = "Historical Fiction",
-                        Price = 15.95m
+                        Price = 15.95m,
+                        Pages = 288
 
                     },
 
@@ -116,7 +122,8 @@ namespace BookStore.Models
                         ISBN = "978-1455586691 ",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = 14.99m
+                        Price = 14.99m,
+                        Pages = 304
                     },
                     new Book
                     {
@@ -128,7 +135,8 @@ namespace BookStore.Models
                         ISBN = "978-1455523023  ",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = 21.66m
+                        Price = 21.66m,
+                        Pages = 240
                     },
                     new Book
                     {
@@ -140,7 +148,8 @@ namespace BookStore.Models
                         ISBN = "978-1591847984  ",
                         Classification = "Non-Fiction",
                         Category = "Business",
-                        Price = 29.16m
+                        Price = 29.16m,
+                        Pages = 400
                     },
 
                     new Book
@@ -153,7 +162,47 @@ namespace BookStore.Models
                         ISBN = "978-1591847984  ",
                         Classification = "Fiction",
                         Category = "Thrillers",
-                        Price = 29.16m
+                        Price = 29.16m,
+                        Pages = 642
+                    },
+                    new Book
+                    {
+                        Title = "Where's Waldo",
+                        AuthorFirst = "Martin",
+                        AuthorMiddle = "",
+                        AuthorLast = "Handford",
+                        Publisher = "Little Brown & Co",
+                        ISBN = "978-1591840003  ",
+                        Classification = "Fiction",
+                        Category = "Children's Literature",
+                        Price = 100.16m,
+                        Pages = 19
+                    },
+                    new Book
+                    {
+                        Title = "There and Back Again",
+                        AuthorFirst = "J.R.R",
+                        AuthorMiddle = "",
+                        AuthorLast = "Tolkien",
+                        Publisher = "George Allen & Unwin",
+                        ISBN = "978-1591840001  ",
+                        Classification = "Fiction",
+                        Category = "High Fantasy",
+                        Price = 29.16m,
+                        Pages = 310
+                    },
+                    new Book
+                    {
+                        Title = "The Book of Mormon",
+                        AuthorFirst = "Mormon",
+                        AuthorMiddle = "",
+                        AuthorLast = "unknown",
+                        Publisher = "LDS Books",
+                        ISBN = "978-1591840002  ",
+                        Classification = "Non-Fiction",
+                        Category = "Scripture",
+                        Price = 5.00m,
+                        Pages = 238
                     }
                     );
                 context.SaveChanges();
