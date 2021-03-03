@@ -13,20 +13,11 @@
     -->
 @foreach (var x in Model.Books)
 {
-    <div class="card card-outline-primary m-1 p-1">
-        <h4>
-            @x.Title
-            <span class="badge badge-pill badge-info" style="float:right">$@x.Price</span>
-        </h4>
-        <p>Author: @x.AuthorFirst @x.AuthorMiddle @x.AuthorLast</p>
-        <p>Publisher: @x.Publisher</p>
-        <p>Classification/Category: @x.Classification, @x.Category</p>
-        <p>Pages: @x.Pages</p>
-
-    </div>
+    // use a partial view
+    <partial name="SharedBookInfo" model="x" />
 }
 <!-- This is where the pagination happens. Current page is highlighted and you can select other pages-->
 <div page-model="@Model.Pageinfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark"
-     page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory" class="btn-group pull-right m-1"></div>
+     page-class-selected="btn-info" page-url-category="@Model.CurrentCategory" class="btn-group pull-right m-1"></div>
 
 

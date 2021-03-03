@@ -1,0 +1,10 @@
+﻿@model IEnumerable<string>
+
+<!-- This is the actual outline that the View Component uses to output the information into the html page-->
+<a class="text-white btn btn-block btn-outline-info" asp-action="Index" asp-controller="Home" asp-route-category="">Home</a>
+
+@foreach (string category in Model)
+{
+    <a class="text-white btn btn-block @(category == ViewBag.SelectedCategory ? "btn-info" : "btn-outline-info")" 
+       asp-action="Index"asp-controller="Home" asp-route-category="@category" asp-route-page="1">@category</a>
+}
