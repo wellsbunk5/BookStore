@@ -25,13 +25,15 @@ namespace BookStore.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(string category, int page = 1)
         {
             // call view and pass it the BookListViewModel which contains both the repository of Books and the Page Info
             return View(new BookListViewModel
             {
                 // Set the Books = to _repository and make sure it only grabs the right ones for each page
-                Books = _repository.Books.OrderBy(p => p.BookId)
+                Books = _repository.Books
+                .Where(p => category == null || p.Category == category )
+                .OrderBy(p => p.BookId)
                 .Skip((page -1) * numItemsOnPage)
                 .Take(numItemsOnPage),
                 Pageinfo = new PageInfo
@@ -40,7 +42,8 @@ namespace BookStore.Controllers
                     CurrentPage = page,
                     ItemsPerPage = numItemsOnPage,
                     TotalNumItems = _repository.Books.Count()
-                }
+                },
+                CurrentCategory = category
             });
                 
         }

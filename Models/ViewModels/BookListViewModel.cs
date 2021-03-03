@@ -12,5 +12,6 @@ namespace BookStore.Models.ViewModels
 
         public IEnumerable<Book> Books { get; set; }
         public PageInfo Pageinfo { get; set; }
+        public string CurrentCategory { get; set; }
     }
 }
