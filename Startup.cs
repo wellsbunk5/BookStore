@@ -29,10 +29,14 @@ namespace BookStore
 
             services.AddDbContext<BookStoreDBContext>(options =>
            {
-               options.UseSqlServer(Configuration["ConnectionStrings:BookStoreConnection"]);
+               options.UseSqlite(Configuration["ConnectionStrings:BookStoreConnection"]);
            });
 
             services.AddScoped<BookStoreRepository, EFBookStore>();
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +55,8 @@ namespace BookStore
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -58,20 +64,22 @@ namespace BookStore
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("CategoryAndPage",
-                    "Books/{category}/Page{page:int}",
+                    "Books/{category}/Page{pageNum:int}",
                     new { Controller = "Home", action = "Index" });
 
                 endpoints.MapControllerRoute("Page",
-                    "Books/Page{page:int}",
+                    "Books/Page{pageNum:int}",
                     new { Controller = "Home", action = "Index" });
 
 
                 endpoints.MapControllerRoute(
                     "Category" ,
                     "Books/{category}",
-                    new { Controller = "Home", action = "Index", page = 1} );
+                    new { Controller = "Home", action = "Index", pageNum = 1} );
 
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
 
             SeedData.EnsurePopulated(app);
