@@ -7,6 +7,7 @@
     <title>@ViewData["Title"] - BookStore</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/fontawesome-free-5.15.2-web/css/all.min.css" rel="stylesheet" />
 </head>
 <!-- This is just the layout for all pages. Here are the 3 extra bootstrap items I tried out
     1. jumobtron
@@ -18,6 +19,16 @@
 <body class="bg-secondary" >
     <div class="jumbotron bg-light">
         <h2 class="text-center">Welcome to Our Book Store</h2>
+    </div>
+    <div class="bg-dark text-white p-2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col navbar-brand">BookStore</div>
+                <div class="col-6 text-right">
+                    <vc:cart-summary />
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row m-1 p-1">
         <div class="col-3">
