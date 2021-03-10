@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+// This is the basic outline for a cart. But then we will use this and build on it with a session cart
+
 namespace BookStore.Models
 {
     public class Cart

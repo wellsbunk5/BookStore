@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Infrastructure
 {
+    // These functions will set Json and Get Json from the session since we can't store objects.
     public static class SessionExtensions
     {
         public static void SetJson (this ISession session, string key, object value)

@@ -9,6 +9,10 @@ using BookStore.Infrastructure;
 
 namespace BookStore.Models
 {
+
+    // Inherit from session cart and then anytime the Cart class is called we will use the GetCart Function and implement this.
+
+    // We will also use the base Cart functions but then add to them by updating the Json.
     public class SessionCart : Cart
     {
         public static Cart GetCart(IServiceProvider services)

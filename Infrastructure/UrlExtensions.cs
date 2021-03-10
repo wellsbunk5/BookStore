@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Infrastructure
 {
+    // This gives us the returnUrl
     public static class UrlExtensions
     {
         public static string PathAndQuery(this HttpRequest request) =>

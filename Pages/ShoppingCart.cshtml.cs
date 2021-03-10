@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BookStore.Pages
 {
+
+    // This is the model that almost works as a controller for the Shopping Cart Page.
     public class ShoppingCartModel : PageModel
     {
         private BookStoreRepository repository;
