@@ -38,5 +38,15 @@ namespace BookStore.Pages
 
             return RedirectToPage(new { returnUrl = returnUrl });
         }
+
+        public IActionResult OnPostRemove(long bookId, string returnUrl)
+        {
+            Cart = HttpContext.Session.GetJson<Cart>("cart");
+            Cart.RemoveLine(Cart.Lines.First(cl => cl.Book.BookId == bookId).Book);
+
+            HttpContext.Session.SetJson("cart", Cart);
+
+            return RedirectToPage(new { returnUrl = returnUrl });
+        }
     }
 }
